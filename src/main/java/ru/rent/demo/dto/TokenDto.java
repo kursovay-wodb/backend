@@ -7,7 +7,7 @@ public class TokenDto {
     private String message;
 
     public TokenDto() {}
-    
+
     public TokenDto(String token, String type, String message) {
         this.token = token;
         this.type = type;

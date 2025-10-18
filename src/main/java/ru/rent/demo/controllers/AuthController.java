@@ -69,7 +69,7 @@ public class AuthController {
         }
     }
 
-    // Проверка валидности JWT токена 
+    // Проверка валидности JWT токена
     @PostMapping("/validate")
     public ResponseEntity<?> validateToken(@RequestHeader("Authorization") String authHeader) {
 

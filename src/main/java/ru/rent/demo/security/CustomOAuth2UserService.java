@@ -41,7 +41,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             User user = userService.createUserOauth2(email, name, AuthProvider.GOOGLE);
             return new CustomOAuth2User(oAuth2User, user);
         }
-        
+
     }
 
 }

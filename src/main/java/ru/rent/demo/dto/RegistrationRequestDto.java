@@ -6,7 +6,7 @@ public class RegistrationRequestDto {
     private String name;
 
     public RegistrationRequestDto() {}
- 
+
     public RegistrationRequestDto(String email, String password, String name) {
         this.email = email;
         this.password = password;

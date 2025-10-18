@@ -22,7 +22,7 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
 
     private final JwtTokenProvider tokenProvider;
 
-    
+
     public OAuth2AuthenticationSuccessHandler(JwtTokenProvider tokenProvider) {
         this.tokenProvider = tokenProvider;
     }

@@ -14,7 +14,7 @@ public class OAuth2AuthenticationFailureHandler implements AuthenticationFailure
 
     @Value("${app.frontend.url:http://localhost:3000}")
     private String frontendUrl;
-    
+
     @Override
     public void onAuthenticationFailure(HttpServletRequest request,
                                         HttpServletResponse response,

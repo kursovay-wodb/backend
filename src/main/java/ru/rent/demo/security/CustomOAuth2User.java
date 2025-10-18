@@ -30,7 +30,7 @@ public class CustomOAuth2User implements OAuth2User {
                 .map(role -> new SimpleGrantedAuthority(role.name()))
                 .collect(Collectors.toList());
     }
-    
+
     @Override
     public String getName() {
         return user.getEmail();
