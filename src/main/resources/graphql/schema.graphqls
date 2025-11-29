@@ -1,0 +1,93 @@
+type User {
+    id: ID!
+    email: String!
+    name: String!
+    provider: String!
+    dealsAsOwner: Int!
+    dealsAsCustomer: Int!
+    roles: [String!]!
+}
+
+
+type EquipmentType {
+    id: ID!
+    name: String!
+    description: String
+    category: String!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    image: String
+    rentalPrice: Float
+    quantity: Int
+    minRentalPeriod: Int
+    maxRentalPeriod: Int
+    equipmentType: EquipmentType!
+    owner: User
+}
+
+type RentalContract {
+    id: ID!
+    customerId: ID!
+    ownerId: ID!
+    startRentDate: String!
+    endRentDate: String!
+    quantity: Int!
+    productName: String!
+    rentalPrice: Float!
+    fullPrice: Float!
+}
+
+input ProductInput {
+    name: String!
+    description: String
+    image: String
+    rentalPrice: Float!
+    quantity: Int!
+    minRentalPeriod: Int!
+    maxRentalPeriod: Int
+    equipmentTypeId: ID!
+}
+
+input RentalContractInput {
+    productId: ID!
+    startRentDate: String!
+    endRentDate: String!
+    quantity: Int!
+}
+
+type Query {
+    # Пользователи
+    users: [User!]!
+    user(id: ID!): User
+
+    # Товары
+    products: [Product!]!
+    productsByOwner(ownerId: ID!): [Product!]!
+    availableProducts: [Product!]!
+    productById(productId: ID!): Product
+
+    # Типы оборудования
+    equipmentTypes: [EquipmentType!]!
+    equipmentTypesByCategory(category: String!): [EquipmentType!]!
+
+    # Договоры аренды
+    rentalContracts: [RentalContract!]!
+    rentalContractsByCustomer: [RentalContract!]!
+    rentalContractsByOwner: [RentalContract!]!
+    rentalContract(id: ID!): RentalContract
+}
+
+type Mutation {
+    # Товары
+    createProduct(input: ProductInput!): Product!
+    updateProduct(id: ID!, input: ProductInput!): Product!
+    deleteProduct(id: ID!): Boolean!
+
+    # Договоры аренды
+    createRentalContract(input: RentalContractInput!): RentalContract!
+    updateRentalContractStatus(id: ID!, status: String!): RentalContract!
+}
