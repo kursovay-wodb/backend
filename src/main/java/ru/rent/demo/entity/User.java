@@ -19,9 +19,9 @@ public class User {
 
     private String password;
 
-    private int dealsAsOwner;
+    private Integer dealsAsOwner;
 
-    private int dealsAsCustomer;
+    private Integer dealsAsCustomer;
 
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;
@@ -81,7 +81,7 @@ public class User {
     }
 
     public int getDealsAsOwner() {
-        return dealsAsOwner;
+        return dealsAsOwner != null ? dealsAsOwner : 0;
     }
 
     public void setDealsAsOwner(int dealsAsOwner) {
@@ -89,7 +89,7 @@ public class User {
     }
 
     public int getDealsAsCustomer() {
-        return dealsAsCustomer;
+        return dealsAsCustomer != null ? dealsAsCustomer : 0;
     }
 
     public void setDealsAsCustomer(int dealsAsCustomer) {
